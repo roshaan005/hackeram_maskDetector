@@ -52,8 +52,6 @@ console.log(video)
         if (prediction.label == 0) { 
             loader.style.display = "none"
             container.appendChild(markMessage)
-          
-            
             console.log("no")
         } else  if(prediction.label == 1){ // has mask - green border
             loader.style.display = "none"

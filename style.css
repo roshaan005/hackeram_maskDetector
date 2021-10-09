@@ -90,11 +90,18 @@ footer{
   display:none;
   
 }
-#photo.mask{
-  border: 10px solid green;
+.mask{
+  background: green;
+  width:40px;
+  height:40px;
+
+  margin-top:10%;
 }
-#photo.no-mask {
-  border: 10px solid red;
+.no-mask {
+  background: red;
+  width:40px;
+  height:40px;
+  margin-top: 10%;
 }
 #startbutton{
   border:1px solid #00ffdd;
@@ -103,11 +110,28 @@ footer{
   width:14rem;
   height:2.5rem;
   color:black;
+  font-size:1rem
 
 
 }
+
+.rotate {
+  width:4rem;
+  height:4rem;
+  margin-top :10%;
+  -webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
+}
 .camera{
-  background: tomato;
+ 
 }
 .container{
   width:100%;
@@ -123,7 +147,7 @@ footer{
 }
 @media screen and (min-width: 860px) {
   body{
-      background:red;
+      background:black;
   }
   .grid{
     grid-template-rows: none;
@@ -141,5 +165,16 @@ footer{
       background:rgb(0, 0, 0);
   }
   
+
+}
+
+
+.btn:hover{
+  background: transparent;
+  color:white;
+}
+#startbutton:hover{
+  background: transparent;
+  color:white;
 
 }

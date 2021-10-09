@@ -1,7 +1,14 @@
 
 const container = document.querySelector(".container")
+const markMessage = document.createElement("div")
+const noMaskMessage = document.createElement("div")
+markMessage.classList.add("mask")
+noMaskMessage.classList.add("no-mask")
 
 const startDetectBtn = document.querySelector(".btn")
+const loader = document.createElement("img")
+loader.src = "loading.png"
+loader.classList.add("rotate")
 
 
 console.log(video)
@@ -27,7 +34,8 @@ console.log(video)
         trainImagesContainer.appendChild(newImage);
     }
 
-    document.querySelector("body").style.background = "red"
+    container.innerHTML = ""
+    container.appendChild(loader)
 
 
 
@@ -42,14 +50,14 @@ console.log(video)
         const prediction = await classifier.predictClass(logits);
     // Add a border to the test image to display the prediction result
         if (prediction.label == 0) { 
-            document.querySelector("body").style.background = "white"
+            loader.style.display = "none"
+           container.appendChild(noMaskMessage)
 
             
             console.log("no")
         } else  if(prediction.label == 1){ // has mask - green border
-            document.querySelector("body").style.background = "white"
-
-            console.log("yes")
+            loader.style.display = "none"
+            container.appendChild(markMessage)
         }
 
   }
@@ -160,7 +168,7 @@ return classifier;
     
         startDetectBtn.addEventListener("click",function(){
             startup()
-            window.scrollBy(0,900)
+            window.scrollBy(0,1000)
         },false)
     })();
 

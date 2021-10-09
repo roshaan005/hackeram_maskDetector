@@ -51,13 +51,15 @@ console.log(video)
     // Add a border to the test image to display the prediction result
         if (prediction.label == 0) { 
             loader.style.display = "none"
-           container.appendChild(noMaskMessage)
-
+            container.appendChild(markMessage)
+          
             
             console.log("no")
         } else  if(prediction.label == 1){ // has mask - green border
             loader.style.display = "none"
-            container.appendChild(markMessage)
+            container.appendChild(noMaskMessage)
+
+           
         }
 
   }

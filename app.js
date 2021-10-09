@@ -1,7 +1,7 @@
    /* JS comes here */
  async function compare() {
-    const maskImageCount = 5;
-    const noMaskImageCount = 6;
+    const maskImageCount = 4;
+    const noMaskImageCount = 5;
     const trainImagesContainer = document.querySelector(".train-images");
     // Add mask images to the DOM and give them a class of `mask-img`
     for (let i = 1; i <= maskImageCount; i++) {
@@ -18,6 +18,8 @@
         trainImagesContainer.appendChild(newImage);
     }
 
+    document.querySelector("body").style.background = "red"
+
 
 
     // Load mobilenet module
@@ -30,12 +32,15 @@
         const logits = mobilenetModule.infer(tfTestImage, 'conv_preds');
         const prediction = await classifier.predictClass(logits);
     // Add a border to the test image to display the prediction result
-        if (prediction.label == 0) { // no mask - red border
-            testImage.classList.add('no-mask');
-            console.log(prediction.label)
+        if (prediction.label == 0) { 
+            document.querySelector("body").style.background = "white"
+
+            
+            console.log("no")
         } else  if(prediction.label == 1){ // has mask - green border
-            testImage.classList.add('mask');
-            console.log(prediction.label)
+            document.querySelector("body").style.background = "white"
+
+            console.log("yes")
         }
 
   }
@@ -133,6 +138,7 @@ return classifier;
             var data = canvas.toDataURL('image/png');
             canvas.style.display = "none"
             photo.setAttribute('src', data);
+           
             compare();
         
 

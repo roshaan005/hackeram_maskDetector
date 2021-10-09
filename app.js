@@ -30,10 +30,12 @@
         const logits = mobilenetModule.infer(tfTestImage, 'conv_preds');
         const prediction = await classifier.predictClass(logits);
     // Add a border to the test image to display the prediction result
-        if (prediction.label == 1) { // no mask - red border
+        if (prediction.label == 0) { // no mask - red border
             testImage.classList.add('no-mask');
-        } else { // has mask - green border
+            console.log(prediction.label)
+        } else  if(prediction.label == 1){ // has mask - green border
             testImage.classList.add('mask');
+            console.log(prediction.label)
         }
 
   }

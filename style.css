@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: antiquewhite;
+}
+.train-images {
+  display: none;
+}
+#photo {
+  max-height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+#photo.mask{
+  border: 10px solid green;
+}
+#photo.no-mask {
+  border: 10px solid red;
+}

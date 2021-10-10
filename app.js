@@ -44,8 +44,8 @@ loader.classList.add("rotate")
 
 
 async function compare() {
-    const maskImageCount = 4;
-    const noMaskImageCount = 5;
+    const maskImageCount = 7;
+    const noMaskImageCount = 8;
     const trainImagesContainer = document.querySelector(".train-images");
     // Add mask images to the DOM and give them a class of `mask-img`
     for (let i = 1; i <= maskImageCount; i++) {
